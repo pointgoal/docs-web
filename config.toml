@@ -1,5 +1,5 @@
 baseURL = "/"
-title = "CloudSight"
+title = "MOF"
 
 # Language settings
 contentDir = "content/en"
@@ -67,7 +67,7 @@ id = "UA-00000000-0"
 
 [languages]
 [languages.en]
-title = "CloudSight"
+title = "MOF"
 description = "Open source FinOps platform for multi-cloud"
 languageName ="English"
 # Weight used for sorting.
@@ -90,7 +90,7 @@ weight = 1
 section = ["HTML", "RSS"]
 
 [params]
-copyright = "PointGoal"
+copyright = "MOF"
 privacy_policy = "https://policies.google.com/privacy"
 
 # First one is picked as the Twitter card image if not set on page.
@@ -112,12 +112,12 @@ version = "0.0"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://example.com"
+url_latest_version = "https://github.com/pointgoal/mof-docs"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/pointgoal/sight"
+github_repo = "https://github.com/pointgoal/mof"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/pointgoal/docs-web"
+github_project_repo = "https://github.com/pointgoal"
 
 # Specify a value here if your content directory is not in your repo's root directory
 # github_subdir = ""
@@ -160,8 +160,8 @@ sidebar_search_disable = false
 [params.ui.feedback]
 enable = true
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
+yes = 'Glad to hear it! Please <a href="https://github.com/pointgoal/mof/issues/new">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/pointgoal/mof/issues/new">tell us how we can improve</a>.'
 
 # Adds a reading time to the top of each doc.
 # If you want this feature, but occasionally need to remove the Reading time from a single page,
@@ -207,7 +207,7 @@ enable = false
 
 [module]
   # uncomment line below for temporary local development of module
-  # replacements = "github.com/google/docsy -> ../../docsy"
+  # replacements = "github.com/google/docsy -> /Users/dongxuny/workspace/pointgoal/mof-docs/themes/docsy"
   [module.hugoVersion]
     extended = true
     min = "0.75.0"

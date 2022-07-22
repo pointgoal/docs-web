@@ -1,4 +1,3 @@
-
 ---
 title: "Documentation"
 linkTitle: "Documentation"
@@ -9,16 +8,38 @@ menu:
 ---
 
 {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
+**MOF** is cloud native [FinOps](https://www.finops.org/introduction/what-is-finops/) platform for multi-cloud
 {{% /pageinfo %}}
 
+## What is MOF?
 
-This section is where the user documentation for your project lives - all the information your users need to understand and successfully use your project. 
+**MOF** stands for **Ministry Of Finance**.
 
-For large documentation sets we recommend adding content under the headings in this section, though if some or all of them don’t apply to your project feel free to remove them or add your own. You can see an example of a smaller Docsy documentation site in the [Docsy User Guide](https://docsy.dev/docs/), which lives in the [Docsy theme repo](https://github.com/google/docsy/tree/master/userguide) if you'd like to copy its docs section. 
+**MOF** is cloud native [FinOps](https://www.finops.org/introduction/what-is-finops/) platform for multi-cloud.
 
-Other content such as marketing material, case studies, and community updates should live in the [About](/about/) and [Community](/community/) pages.
+**MOF** aims to help user use cloud like a professional **solution architect**.
 
-Find out how to use the Docsy theme in the [Docsy User Guide](https://docsy.dev/docs/). You can learn more about how to organize your documentation (and how we organized this site) in [Organizing Your Content](https://docsy.dev/docs/best-practices/organizing-content/).
+{{< alert title="MOF is Cloud Native" >}}
+- Run on Kubernetes/VM/docker
 
+- Data is from cloud API
+{{< /alert >}}
 
+{{< alert color="success" title="MOF is Decoupled" >}}
+- Multi-cloud is supported with plugin style
+
+- Optimization and forecasting algorithms can be implemented by user as plugin 
+{{< /alert >}}
+
+{{< alert color="warning" title="MOF is out of the box" >}}
+- No extra configuration is needed
+
+- No long term learning procedure is needed
+{{< /alert >}}
+
+## What is FinOps?
+![](https://mma.prnewswire.com/media/1432257/FinOps_Foundation_Logo.jpg?w=200)
+
+> MOF follows FinOps framework describes at [FinOps Foundation](https://www.finops.org/introduction/what-is-finops/)
+
+{{< youtube VDrcgEne6lU >}}

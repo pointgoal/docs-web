@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/google/docsy-example.git"
+    "url": "git+https://github.com/pointgoal/mof-docs.git"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,6 @@
   "devDependencies": {
     "autoprefixer": "^10.4.0",
     "postcss": "^8.3.7",
-    "postcss-cli": "^9.0.2"
+    "postcss-cli": "^9.1.0"
   }
 }
