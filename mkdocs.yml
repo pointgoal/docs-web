@@ -8,7 +8,7 @@ theme:
   language: en
   features:
     - navigation.top
-    - navigation.expand
+ #   - navigation.expand
 
 plugins:
   - glightbox
@@ -68,6 +68,12 @@ nav:
   - 'Guides':
       - 'Tutorial':
           - 'Overview': 'guide/tutorial/index.md'
+          - 'Add provider': 'guide/tutorial/add-provider.md'
+          - 'Cost analysis': 'guide/tutorial/cost-analysis.md'
+          - 'Cost forecast': 'guide/tutorial/cost-forecast.md'
+          - 'Cost optimization': 'guide/tutorial/cost-opt.md'
+          - 'Reserved instances': 'guide/tutorial/cost-ri.md'
+          - 'Tagging': 'guide/tutorial/tag.md'
       - 'Operator':
           - 'Overview': 'guide/operator/index.md'
       - 'Developer':
