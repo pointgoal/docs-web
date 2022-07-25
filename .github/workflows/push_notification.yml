@@ -1,0 +1,23 @@
+name: push_notification
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: WeChat Work notification by text
+        uses: chf007/action-wechat-work@master
+        env:
+          WECHAT_WORK_BOT_WEBHOOK: ${{secrets.WECHAT_WORK_BOT_WEBHOOK}}
+        with:
+          msgtype: markdown
+          content: "## Push notification\n
+          > **Repository:** <font color=\"comment\">${{ github.repository }}</font> \n
+          > **Branch:** <font color=\"comment\">${{ github.event.ref }}</font> \n
+          > **Commit:** <font color=\"comment\">${{ github.event.head_commit.message }}</font> \n
+          > **Committer:** <font color=\"comment\">${{ github.event.head_commit.committer.name }}</font>"
+          mentioned_list: '["lark","shengyu"]'
