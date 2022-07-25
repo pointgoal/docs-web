@@ -11,6 +11,7 @@ theme:
  #   - navigation.expand
 
 plugins:
+  - swagger-ui-tag
   - glightbox
   - mkdocs-video
   - i18n:
@@ -84,7 +85,7 @@ nav:
           - 'Alibaba Cloud': 'reference/provider/alibaba-cloud.md'
           - 'Tencent Cloud': 'reference/provider/tencent-cloud.md'
       - 'Jarvis':
-          - 'Maximum': 'reference/jarvis/maximum.md'
+          - 'V1': 'reference/jarvis/v1.md'
       - 'API': 'reference/api.md'
       - 'Web UI': 'reference/web-ui.md'
   - 'Community':

@@ -3,3 +3,4 @@ mkdocs-material
 mkdocs-glightbox
 mkdocs-static-i18n
 mkdocs-video
+mkdocs-swagger-ui-tag

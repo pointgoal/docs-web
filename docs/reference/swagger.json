@@ -1,0 +1,3606 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is Provider backend service.",
+        "title": "MOF",
+        "contact": {
+            "name": "PointGoal",
+            "url": "https://github.com/pointgoal/mof",
+            "email": "lark@pointgoal.io"
+        },
+        "license": {
+            "name": "Apache 2.0 License",
+            "url": "https://github.com/pointgoal/mof/blob/master/LICENSE.txt"
+        },
+        "version": "2.0"
+    },
+    "paths": {
+        "/v1/auth/authorized": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Validate JWT",
+                "operationId": "6",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.AuthorizedResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/auth/login": {
+            "put": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login",
+                "operationId": "2",
+                "parameters": [
+                    {
+                        "description": "LoginReq",
+                        "name": "LoginReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/auth.LoginReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.LoginResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/auth/provider": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "List providers associated with user account",
+                "operationId": "12",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.ListProvidersResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Add provider to user account",
+                "operationId": "10",
+                "parameters": [
+                    {
+                        "description": "AddProviderReq",
+                        "name": "AddProviderReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/auth.AddProviderReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.AddProviderResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Update provider associated with user account",
+                "operationId": "14",
+                "parameters": [
+                    {
+                        "description": "UpdateProviderReq",
+                        "name": "UpdateProviderReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/auth.UpdateProviderReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.UpdateProviderResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/auth/provider/type": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "List providers types supported",
+                "operationId": "15",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.ListSupportedProvidersResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/auth/provider/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get provider associated with user account",
+                "operationId": "11",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "provider Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.GetProviderResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Delete provider associated with user account",
+                "operationId": "13",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "provider Id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.DeleteProviderResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/auth/refresh-token": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh JWT token",
+                "operationId": "7",
+                "parameters": [
+                    {
+                        "description": "RefreshTokenReq",
+                        "name": "RefreshTokenReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/auth.RefreshTokenReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.RefreshTokenResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/auth/signup": {
+            "put": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Signup",
+                "operationId": "3",
+                "parameters": [
+                    {
+                        "description": "SignupReq",
+                        "name": "SignupReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/auth.SignupReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.SignupResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/auth/user": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get user metadata",
+                "operationId": "1",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.GetUserResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Update user",
+                "operationId": "5",
+                "parameters": [
+                    {
+                        "description": "UpdateUserReq",
+                        "name": "UpdateUserReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/auth.UpdateUserReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.UpdateUserResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Delete user",
+                "operationId": "4",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/auth.DeleteUserResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/offer/list": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Offer"
+                ],
+                "summary": "List offers",
+                "operationId": "100",
+                "parameters": [
+                    {
+                        "description": "base.ListOffersReq",
+                        "name": "base.ListOffersReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.ListOffersReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListOffersResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/offer/sync": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Offer"
+                ],
+                "summary": "Sync offers",
+                "operationId": "101",
+                "parameters": [
+                    {
+                        "description": "base.SyncOffersReq",
+                        "name": "base.SyncOffersReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.SyncOffersReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.SyncOffersResp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "$ref": "#/definitions/base.ErrorRespForSwagger"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/analyse/metrics": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analyse"
+                ],
+                "summary": "Get cost metrics",
+                "operationId": "207",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "2022-01-01",
+                        "description": "2022-01-01",
+                        "name": "start",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "2022-05-25",
+                        "description": "2022-05-25",
+                        "name": "end",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "monthly",
+                            "daily"
+                        ],
+                        "type": "string",
+                        "description": "monthly",
+                        "name": "granularity",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "USD",
+                            "CNY"
+                        ],
+                        "type": "string",
+                        "description": "CNY",
+                        "name": "currency",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetCostResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/analyse/summary": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Analyse"
+                ],
+                "summary": "Get cost summary across all providers",
+                "operationId": "206",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "2022-01-01",
+                        "description": "2022-01-01",
+                        "name": "start",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "2022-05-25",
+                        "description": "2022-05-25",
+                        "name": "end",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "monthly",
+                            "daily"
+                        ],
+                        "type": "string",
+                        "description": "monthly",
+                        "name": "granularity",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "USD",
+                            "CNY"
+                        ],
+                        "type": "string",
+                        "description": "CNY",
+                        "name": "currency",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.CostSummaryResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/forecast/dimensions": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Forecast"
+                ],
+                "summary": "Get cost forecast dimension values",
+                "operationId": "210",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "linkedAccount",
+                            "region",
+                            "service",
+                            "tag"
+                        ],
+                        "type": "string",
+                        "description": "domain",
+                        "name": "key",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetForecastDimensionsResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/forecast/metrics": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Forecast"
+                ],
+                "summary": "Get cost forecast metrics",
+                "operationId": "209",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "USD",
+                            "CNY"
+                        ],
+                        "type": "string",
+                        "description": "CNY",
+                        "name": "currency",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "domain",
+                        "description": "domain",
+                        "name": "groupKey",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "example": "test",
+                        "description": "test",
+                        "name": "groupValue",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetForecastResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/forecast/summary": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Forecast"
+                ],
+                "summary": "Get forecast summary across all providers",
+                "operationId": "208",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "USD",
+                            "CNY"
+                        ],
+                        "type": "string",
+                        "description": "CNY",
+                        "name": "currency",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ForecastSummaryResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/list": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Optimization"
+                ],
+                "summary": "List optimizations",
+                "operationId": "213",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china,aws-us",
+                        "description": "aws-china,aws-us",
+                        "name": "provNames",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListOptimizationsResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/refresh": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Optimization"
+                ],
+                "summary": "Refresh optimization to a provider",
+                "operationId": "212",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.RefreshOptimizationsResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/ri/coverage": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "RI"
+                ],
+                "summary": "Get RI coverage metrics",
+                "operationId": "217",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "monthly",
+                            "daily"
+                        ],
+                        "type": "string",
+                        "description": "monthly",
+                        "name": "granularity",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "Amazon Elastic Compute Cloud - Compute",
+                            "Amazon Relational Database Service",
+                            "Amazon ElastiCache",
+                            "Amazon Redshift",
+                            "Amazon Elasticsearch Service",
+                            "Amazon OpenSearch Service"
+                        ],
+                        "type": "string",
+                        "description": "Amazon Elastic Compute Cloud - Compute",
+                        "name": "service",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListRiCoverageResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/ri/list": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "RI"
+                ],
+                "summary": "List RI",
+                "operationId": "215",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListRiResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/ri/recommendation": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "RI"
+                ],
+                "summary": "List RI recommendation",
+                "operationId": "214",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            1,
+                            3
+                        ],
+                        "type": "integer",
+                        "description": "1",
+                        "name": "terms",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "all_upfront",
+                            "partial_upfront",
+                            "no_upfront"
+                        ],
+                        "type": "string",
+                        "description": "up_front",
+                        "name": "option",
+                        "in": "query"
+                    },
+                    {
+                        "enum": [
+                            "standard",
+                            "convertible"
+                        ],
+                        "type": "string",
+                        "description": "standard",
+                        "name": "class",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "7",
+                        "name": "period",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListRiRecommendationResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/ri/service": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "RI"
+                ],
+                "summary": "List services for RI",
+                "operationId": "218",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListRiServicesResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/ri/util": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "RI"
+                ],
+                "summary": "Get RI utilization",
+                "operationId": "216",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListRiUtilResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/optimize/summary": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Optimization"
+                ],
+                "summary": "Get optimize summary across all providers",
+                "operationId": "211",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.OptimizeSummaryResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/resource/arch": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resource"
+                ],
+                "summary": "Get architecture of resources by provider name",
+                "operationId": "202",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetArchResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/resource/get": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resource"
+                ],
+                "summary": "Get resource detail by provider name",
+                "operationId": "204",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "cn-northwest-1",
+                        "description": "cn-northwest-1",
+                        "name": "region",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "EC2",
+                        "description": "EC2",
+                        "name": "service",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "i-087760b263b1b0ed9",
+                        "description": "i-087760b263b1b0ed9",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetResourceDetailResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/resource/list": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resource"
+                ],
+                "summary": "List resources from provider",
+                "operationId": "203",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "EC2",
+                        "description": "EC2",
+                        "name": "service",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "cn-northwest-1",
+                        "description": "cn-northwest-1",
+                        "name": "region",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListResourcesResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/resource/metrics": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resource"
+                ],
+                "summary": "Get resource metrics by provider name",
+                "operationId": "205",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "cn-northwest-1",
+                        "description": "cn-northwest-1",
+                        "name": "region",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "EC2",
+                        "description": "EC2",
+                        "name": "service",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "i-087760b263b1b0ed9",
+                        "description": "i-087760b263b1b0ed9",
+                        "name": "id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "enum": [
+                            "Average",
+                            "Sum",
+                            "Maximum",
+                            "Minimum",
+                            "p99",
+                            "p90"
+                        ],
+                        "type": "string",
+                        "description": "Average",
+                        "name": "statistics",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetResourceMetricsResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/resource/refresh": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resource"
+                ],
+                "summary": "Pull resources from cloud provider",
+                "operationId": "201",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.RefreshResourceResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/resource/summary": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Resource"
+                ],
+                "summary": "Get resource summary across all providers",
+                "operationId": "200",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ResourceSummaryResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/tag/dimensions": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "List service names available for tagging and untagging",
+                "operationId": "223",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListTaggableDimensionsResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/tag/list": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "List tags from provider",
+                "operationId": "219",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListTagsResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/tag/list-resources": {
+            "get": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "List resources by tag key and value from provider",
+                "operationId": "220",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "example": "aws-china",
+                        "description": "aws-china",
+                        "name": "provName",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "domain",
+                        "description": "domain",
+                        "name": "tagKey",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "example": "test",
+                        "description": "test",
+                        "name": "tagValue",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.ListResourcesByTagResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/tag/tag-resource": {
+            "post": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Tag resource",
+                "operationId": "221",
+                "parameters": [
+                    {
+                        "description": "TagResourceReq",
+                        "name": "base.TagResourceReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.TagResourceReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.TagResourceResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/prov/tag/untag-resource": {
+            "delete": {
+                "security": [
+                    {
+                        "JWT": []
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Tag resource",
+                "operationId": "222",
+                "parameters": [
+                    {
+                        "description": "UntagResourceReq",
+                        "name": "base.UntagResourceReq",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.UntagResourceReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/base.UntagResourceResp"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "auth.AddProviderReq": {
+            "type": "object",
+            "properties": {
+                "credential": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "location": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "auth.AddProviderResp": {
+            "type": "object",
+            "properties": {
+                "provider": {
+                    "$ref": "#/definitions/base.Provider"
+                }
+            }
+        },
+        "auth.AuthorizedResp": {
+            "type": "object",
+            "properties": {
+                "authorized": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "userId": {
+                    "type": "string",
+                    "example": "xxx"
+                }
+            }
+        },
+        "auth.DeleteProviderResp": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "success": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "auth.DeleteUserResp": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "userId": {
+                    "type": "string",
+                    "example": "xxx"
+                }
+            }
+        },
+        "auth.GetProviderResp": {
+            "type": "object",
+            "properties": {
+                "provider": {
+                    "$ref": "#/definitions/base.Provider"
+                }
+            }
+        },
+        "auth.GetUserResp": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string",
+                    "example": "avatar id"
+                },
+                "currency": {
+                    "type": "string",
+                    "example": "USD"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "example@example.com"
+                },
+                "fullName": {
+                    "type": "string",
+                    "example": "rk-dev"
+                },
+                "id": {
+                    "type": "string",
+                    "example": "xxx"
+                },
+                "isEmailVerified": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "language": {
+                    "type": "string",
+                    "example": "zh or en"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "+86 000-0000-0000"
+                }
+            }
+        },
+        "auth.ListProvidersResp": {
+            "type": "object",
+            "properties": {
+                "providers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Provider"
+                    }
+                }
+            }
+        },
+        "auth.ListSupportedProvidersResp": {
+            "type": "object",
+            "properties": {
+                "providers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Def"
+                    }
+                }
+            }
+        },
+        "auth.LoginReq": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "example@example.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "your pass word"
+                }
+            }
+        },
+        "auth.LoginResp": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "example": "AKxxxxx"
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "example": "SKxxxxx"
+                }
+            }
+        },
+        "auth.RefreshTokenReq": {
+            "type": "object",
+            "properties": {
+                "refreshToken": {
+                    "type": "string",
+                    "example": "xxx.xxx.xxx"
+                }
+            }
+        },
+        "auth.RefreshTokenResp": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "example": "xxx.xxx.xxx"
+                }
+            }
+        },
+        "auth.SignupReq": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string",
+                    "example": "avatar id"
+                },
+                "currency": {
+                    "type": "string",
+                    "example": "USD"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "example@example.com"
+                },
+                "fullName": {
+                    "type": "string",
+                    "example": "rk-dev"
+                },
+                "language": {
+                    "type": "string",
+                    "example": "zh-CN"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "your pass word"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "+86 000-0000-0000"
+                }
+            }
+        },
+        "auth.SignupResp": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "example": "xxx.xxx.xxx"
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "example": "xxx.xxx.xxx"
+                }
+            }
+        },
+        "auth.UpdateProviderReq": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "auth.UpdateProviderResp": {
+            "type": "object",
+            "properties": {
+                "provider": {
+                    "$ref": "#/definitions/base.Provider"
+                }
+            }
+        },
+        "auth.UpdateUserReq": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string",
+                    "example": "avatar id"
+                },
+                "currency": {
+                    "type": "string",
+                    "example": "USD"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "example@example.com"
+                },
+                "fullName": {
+                    "type": "string",
+                    "example": "rk-dev"
+                },
+                "language": {
+                    "type": "string",
+                    "example": "zh-CN"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "+86 000-0000-0000"
+                }
+            }
+        },
+        "auth.UpdateUserResp": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string",
+                    "example": "avatar id"
+                },
+                "currency": {
+                    "type": "string",
+                    "example": "USD"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "example@example.com"
+                },
+                "fullName": {
+                    "type": "string",
+                    "example": "rk-dev"
+                },
+                "id": {
+                    "type": "string",
+                    "example": "xxx"
+                },
+                "isEmailVerified": {
+                    "type": "boolean",
+                    "example": true
+                },
+                "language": {
+                    "type": "string",
+                    "example": "zh or en"
+                },
+                "phone": {
+                    "type": "string",
+                    "example": "+86 000-0000-0000"
+                }
+            }
+        },
+        "base.CostSummary": {
+            "type": "object",
+            "properties": {
+                "thisMonth": {
+                    "type": "object",
+                    "properties": {
+                        "cost": {
+                            "type": "number"
+                        },
+                        "month": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "thisYear": {
+                    "type": "object",
+                    "properties": {
+                        "cost": {
+                            "type": "number"
+                        },
+                        "year": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "base.CostSummaryResp": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "groupByAccount": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.GroupMetrics"
+                    }
+                },
+                "groupByProvider": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.GroupMetrics"
+                    }
+                },
+                "groupByRegion": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.GroupMetrics"
+                    }
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "sankeyChart": {
+                    "$ref": "#/definitions/base.SankeyChart"
+                },
+                "summary": {
+                    "$ref": "#/definitions/base.CostSummary"
+                },
+                "totalMetrics": {
+                    "$ref": "#/definitions/base.Metrics"
+                }
+            }
+        },
+        "base.Def": {
+            "type": "object",
+            "properties": {
+                "credFields": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "example": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "required": {
+                                "type": "boolean"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "docsUrl": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "homeUrl": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "location": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "default": {
+                                "type": "boolean"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.ErrorRespForSwagger": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "object",
+                    "properties": {
+                        "code": {
+                            "type": "integer",
+                            "example": 500
+                        },
+                        "details": {
+                            "type": "array",
+                            "items": {}
+                        },
+                        "message": {
+                            "type": "string",
+                            "example": "Internal error occurs"
+                        },
+                        "status": {
+                            "type": "string",
+                            "example": "Internal Server Error"
+                        }
+                    }
+                }
+            }
+        },
+        "base.Failure": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example": "message"
+                },
+                "retryable": {
+                    "type": "boolean",
+                    "example": false
+                }
+            }
+        },
+        "base.ForecastMetrics": {
+            "type": "object",
+            "properties": {
+                "timestamps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ForecastMetricsData"
+                    }
+                }
+            }
+        },
+        "base.ForecastMetricsData": {
+            "type": "object",
+            "properties": {
+                "lower": {
+                    "type": "number"
+                },
+                "mean": {
+                    "type": "number"
+                },
+                "upper": {
+                    "type": "number"
+                }
+            }
+        },
+        "base.ForecastSummary": {
+            "type": "object",
+            "properties": {
+                "thisMonth": {
+                    "type": "object",
+                    "properties": {
+                        "forecast": {
+                            "type": "number"
+                        },
+                        "month": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "thisYear": {
+                    "type": "object",
+                    "properties": {
+                        "forecast": {
+                            "type": "number"
+                        },
+                        "year": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "base.ForecastSummaryResp": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "summary": {
+                    "$ref": "#/definitions/base.ForecastSummary"
+                }
+            }
+        },
+        "base.GetArchResp": {
+            "type": "object",
+            "properties": {
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "treeChart": {
+                    "$ref": "#/definitions/base.TreeChart"
+                }
+            }
+        },
+        "base.GetCostResp": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "groupByAccount": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.GroupMetrics"
+                    }
+                },
+                "groupByRegion": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.GroupMetrics"
+                    }
+                },
+                "groupByService": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.GroupMetrics"
+                    }
+                },
+                "groupByTag": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.TagMetrics"
+                    }
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "sankeyChart": {
+                    "$ref": "#/definitions/base.SankeyChart"
+                },
+                "summary": {
+                    "$ref": "#/definitions/base.CostSummary"
+                },
+                "totalMetrics": {
+                    "$ref": "#/definitions/base.Metrics"
+                }
+            }
+        },
+        "base.GetForecastDimensionsResp": {
+            "type": "object",
+            "properties": {
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base.GetForecastResp": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "metrics": {
+                    "$ref": "#/definitions/base.ForecastMetrics"
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                }
+            }
+        },
+        "base.GetResourceDetailResp": {
+            "type": "object",
+            "properties": {
+                "detail": {
+                    "$ref": "#/definitions/base.Resource"
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                }
+            }
+        },
+        "base.GetResourceMetricsResp": {
+            "type": "object",
+            "properties": {
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Metrics"
+                    }
+                }
+            }
+        },
+        "base.GroupMetrics": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "groupName": {
+                    "type": "string"
+                },
+                "metricsName": {
+                    "type": "string"
+                },
+                "timestamps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "base.ListOffersReq": {
+            "type": "object",
+            "properties": {
+                "filter": {
+                    "$ref": "#/definitions/base.OfferFilter"
+                },
+                "nextPageToken": {
+                    "type": "string"
+                },
+                "pageSize": {
+                    "type": "integer"
+                },
+                "provType": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.ListOffersResp": {
+            "type": "object",
+            "properties": {
+                "nextPageToken": {
+                    "type": "string"
+                },
+                "offers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Offer"
+                    }
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                }
+            }
+        },
+        "base.ListOptimizationsResp": {
+            "type": "object",
+            "properties": {
+                "lastAnalysedTS": {
+                    "type": "string"
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "rightSizing": {
+                    "type": "object",
+                    "properties": {
+                        "services": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/base.RightSizingService"
+                            }
+                        },
+                        "summary": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/base.SavingAmountSummary"
+                            }
+                        }
+                    }
+                },
+                "summary": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SavingAmountSummary"
+                    }
+                },
+                "unused": {
+                    "type": "object",
+                    "properties": {
+                        "services": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/base.UnusedService"
+                            }
+                        },
+                        "summary": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/base.SavingAmountSummary"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "base.ListResourcesByTagResp": {
+            "type": "object",
+            "properties": {
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ResourceByTag"
+                    }
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                }
+            }
+        },
+        "base.ListResourcesResp": {
+            "type": "object",
+            "properties": {
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Resource"
+                    }
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                }
+            }
+        },
+        "base.ListRiCoverageResp": {
+            "type": "object",
+            "properties": {
+                "coverage": {
+                    "$ref": "#/definitions/base.RiCoverage"
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                }
+            }
+        },
+        "base.ListRiRecommendationResp": {
+            "type": "object",
+            "properties": {
+                "groupByService": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.RiRecommendation"
+                    }
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "summary": {
+                    "type": "object",
+                    "properties": {
+                        "instanceCount": {
+                            "type": "integer"
+                        },
+                        "savingAmount": {
+                            "$ref": "#/definitions/base.SavingAmount"
+                        }
+                    }
+                }
+            }
+        },
+        "base.ListRiResp": {
+            "type": "object",
+            "properties": {
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "riList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.RI"
+                    }
+                }
+            }
+        },
+        "base.ListRiServicesResp": {
+            "type": "object",
+            "properties": {
+                "services": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base.ListRiUtilResp": {
+            "type": "object",
+            "properties": {
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "util": {
+                    "$ref": "#/definitions/base.RiUtil"
+                }
+            }
+        },
+        "base.ListTaggableDimensionsResp": {
+            "type": "object",
+            "properties": {
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base.ListTagsResp": {
+            "type": "object",
+            "properties": {
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.TagSummary"
+                    }
+                }
+            }
+        },
+        "base.Metrics": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "metricsName": {
+                    "type": "string"
+                },
+                "timestamps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "base.Offer": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "onDemand": {
+                    "$ref": "#/definitions/base.OfferPrice"
+                },
+                "reserved": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.OfferPrice"
+                    }
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.OfferFilter": {
+            "type": "object",
+            "properties": {
+                "between": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/base.OfferFilterBetween"
+                    }
+                },
+                "match": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base.OfferFilterBetween": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "type": "number"
+                },
+                "min": {
+                    "type": "number"
+                }
+            }
+        },
+        "base.OfferPrice": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "unit": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.OptimizeSummaryResp": {
+            "type": "object",
+            "properties": {
+                "groupByProvider": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SavingAmountSummary"
+                    }
+                },
+                "lastAnalysedTS": {
+                    "type": "string"
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                }
+            }
+        },
+        "base.Provider": {
+            "type": "object",
+            "properties": {
+                "credentials": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "extensions": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "example": 1
+                },
+                "location": {
+                    "type": "string",
+                    "example": "global"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "aws-test"
+                },
+                "type": {
+                    "type": "string",
+                    "example": "AWS"
+                },
+                "userId": {
+                    "type": "string",
+                    "example": "xxx"
+                },
+                "version": {
+                    "type": "string",
+                    "example": "v1"
+                }
+            }
+        },
+        "base.RI": {
+            "type": "object",
+            "properties": {
+                "currency": {
+                    "type": "string"
+                },
+                "detail": {
+                    "$ref": "#/definitions/base.RiDetail"
+                },
+                "provName": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "riTotalAmount": {
+                    "type": "number"
+                },
+                "riUsedAmount": {
+                    "type": "number"
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "util": {
+                    "type": "number"
+                }
+            }
+        },
+        "base.RefreshOptimizationsResp": {
+            "type": "object",
+            "properties": {
+                "taskId": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.RefreshResourceResp": {
+            "type": "object",
+            "properties": {
+                "taskId": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.Resource": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "alias": {
+                    "type": "string"
+                },
+                "attribute": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "az": {
+                    "type": "string"
+                },
+                "consoleLink": {
+                    "type": "string"
+                },
+                "globalId": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Tag"
+                    }
+                }
+            }
+        },
+        "base.ResourceByTag": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "type": "string"
+                },
+                "globalId": {
+                    "type": "string"
+                },
+                "provName": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "resourceId": {
+                    "type": "string"
+                },
+                "service": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.ResourceSummary": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "number"
+                }
+            }
+        },
+        "base.ResourceSummaryByProviderType": {
+            "type": "object",
+            "properties": {
+                "providerType": {
+                    "type": "string"
+                },
+                "summaries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ResourceSummary"
+                    }
+                }
+            }
+        },
+        "base.ResourceSummaryResp": {
+            "type": "object",
+            "properties": {
+                "database": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ResourceSummaryByProviderType"
+                    }
+                },
+                "network": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ResourceSummaryByProviderType"
+                    }
+                },
+                "respMeta": {
+                    "$ref": "#/definitions/base.RespMeta"
+                },
+                "server": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.ResourceSummaryByProviderType"
+                    }
+                }
+            }
+        },
+        "base.RespMeta": {
+            "type": "object",
+            "properties": {
+                "ext": {
+                    "type": "object",
+                    "additionalProperties": true
+                },
+                "partialFailure": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "#/definitions/base.Failure"
+                    }
+                },
+                "partialSuccess": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base.RiCoverage": {
+            "type": "object",
+            "properties": {
+                "coveragePercentage": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                },
+                "details": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.RiCoverageDetail"
+                    }
+                },
+                "metrics": {
+                    "$ref": "#/definitions/base.Metrics"
+                },
+                "onDemandCost": {
+                    "type": "number"
+                },
+                "onDemandHours": {
+                    "type": "number"
+                },
+                "reservedHours": {
+                    "type": "number"
+                }
+            }
+        },
+        "base.RiCoverageDetail": {
+            "type": "object",
+            "properties": {
+                "coveragePercentage": {
+                    "type": "number"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "onDemandCost": {
+                    "type": "number"
+                },
+                "onDemandHours": {
+                    "type": "number"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "reservedHours": {
+                    "type": "number"
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.RiDetail": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                }
+            }
+        },
+        "base.RiRecommendation": {
+            "type": "object",
+            "properties": {
+                "details": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.RiRecommendationDetail"
+                    }
+                },
+                "offeringClass": {
+                    "type": "string"
+                },
+                "paymentOption": {
+                    "type": "string"
+                },
+                "periodInDays": {
+                    "type": "string"
+                },
+                "provName": {
+                    "type": "string"
+                },
+                "serviceName": {
+                    "type": "string"
+                },
+                "summary": {
+                    "type": "object",
+                    "properties": {
+                        "instanceCount": {
+                            "type": "integer"
+                        },
+                        "savingAmount": {
+                            "$ref": "#/definitions/base.SavingAmount"
+                        }
+                    }
+                },
+                "termInYears": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.RiRecommendationDetail": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                }
+            }
+        },
+        "base.RiUtil": {
+            "type": "object",
+            "properties": {
+                "groupBySubscriptionId": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.GroupMetrics"
+                    }
+                },
+                "savingStatus": {
+                    "type": "object",
+                    "properties": {
+                        "onDemandEquivalent": {
+                            "type": "number"
+                        },
+                        "savingAmount": {
+                            "type": "number"
+                        },
+                        "savingPercentage": {
+                            "type": "number"
+                        }
+                    }
+                },
+                "totalMetrics": {
+                    "$ref": "#/definitions/base.Metrics"
+                },
+                "utilStatus": {
+                    "type": "object",
+                    "properties": {
+                        "purchasedAmount": {
+                            "type": "number"
+                        },
+                        "usedAmount": {
+                            "type": "number"
+                        },
+                        "utilization": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "base.RightSizingResource": {
+            "type": "object",
+            "properties": {
+                "newOffers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Offer"
+                    }
+                },
+                "reason": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "recommendation": {
+                    "type": "string"
+                },
+                "resource": {
+                    "$ref": "#/definitions/base.Resource"
+                },
+                "savingAmount": {
+                    "$ref": "#/definitions/base.SavingAmount"
+                }
+            }
+        },
+        "base.RightSizingService": {
+            "type": "object",
+            "properties": {
+                "provType": {
+                    "type": "string"
+                },
+                "resourceList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.RightSizingResource"
+                    }
+                },
+                "savingAmount": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SavingAmount"
+                    }
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.SankeyChart": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SankeyNode"
+                    }
+                },
+                "links": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SankeyLinks"
+                    }
+                }
+            }
+        },
+        "base.SankeyLinks": {
+            "type": "object",
+            "properties": {
+                "source": {
+                    "type": "string"
+                },
+                "target": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "number"
+                }
+            }
+        },
+        "base.SankeyNode": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.SavingAmount": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "currency": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.SavingAmountSummary": {
+            "type": "object",
+            "properties": {
+                "provType": {
+                    "type": "string"
+                },
+                "savingAmount": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SavingAmount"
+                    }
+                }
+            }
+        },
+        "base.SyncOffersReq": {
+            "type": "object",
+            "properties": {
+                "localeCode": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "provType": {
+                    "type": "string"
+                },
+                "regionCode": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "serviceName": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base.SyncOffersResp": {
+            "type": "object",
+            "properties": {
+                "taskId": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.Tag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.TagMetrics": {
+            "type": "object",
+            "properties": {
+                "attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "metricsName": {
+                    "type": "string"
+                },
+                "tagKey": {
+                    "type": "string"
+                },
+                "tagValue": {
+                    "type": "string"
+                },
+                "timestamps": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                }
+            }
+        },
+        "base.TagResourceReq": {
+            "type": "object",
+            "properties": {
+                "globalId": {
+                    "type": "string"
+                },
+                "provId": {
+                    "type": "integer"
+                },
+                "provName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Tag"
+                    }
+                }
+            }
+        },
+        "base.TagResourceResp": {
+            "type": "object",
+            "properties": {
+                "detail": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.TagSummary": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "base.TreeChart": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.TreeChart"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "number"
+                }
+            }
+        },
+        "base.UntagResourceReq": {
+            "type": "object",
+            "properties": {
+                "globalId": {
+                    "type": "string"
+                },
+                "provId": {
+                    "type": "integer"
+                },
+                "provName": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.Tag"
+                    }
+                }
+            }
+        },
+        "base.UntagResourceResp": {
+            "type": "object",
+            "properties": {
+                "detail": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.UnusedResource": {
+            "type": "object",
+            "properties": {
+                "reason": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pio.Attribute"
+                    }
+                },
+                "resource": {
+                    "$ref": "#/definitions/base.Resource"
+                },
+                "savingAmount": {
+                    "$ref": "#/definitions/base.SavingAmount"
+                }
+            }
+        },
+        "base.UnusedService": {
+            "type": "object",
+            "properties": {
+                "provType": {
+                    "type": "string"
+                },
+                "resourceList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.UnusedResource"
+                    }
+                },
+                "savingAmount": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SavingAmount"
+                    }
+                },
+                "serviceName": {
+                    "type": "string"
+                }
+            }
+        },
+        "pio.Attribute": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "JWT": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
