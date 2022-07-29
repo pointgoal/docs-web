@@ -4,6 +4,7 @@ repo_name: pointgoal/mof-docs
 repo_url: https://github.com/pointgoal/mof-docs
 
 theme:
+  favicon: img/favicon.ico
   name: material
   language: en
   features:
