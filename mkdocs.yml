@@ -46,6 +46,7 @@ plugins:
           Tutorial: 教程
           Operator: 运维
           Developer: 开发
+
 markdown_extensions:
   - attr_list
   - toc:
@@ -57,6 +58,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+
 
 nav:
   - 'Overview': 'index.md'
@@ -96,3 +98,12 @@ nav:
 
 extra_css:
   - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/orgs/pointgoal/repositories
+    - icon: fontawesome/brands/github
+      link: https://github.com/pointgoal
+
+copyright: Copyright &copy; 2022 pointgoal
