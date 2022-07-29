@@ -9,7 +9,6 @@ theme:
   language: en
   features:
     - navigation.top
-    - navigation.tabs
  #   - navigation.expand
 
 plugins:
